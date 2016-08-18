@@ -1,3 +1,3 @@
-# online
-我的网页
-网页链接http://newbornhsir.github.io/online/
+# HIRE ME
+我的个人简历
+网页链接http://newbornhsir.github.io/online/home.html
