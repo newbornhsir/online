@@ -2,16 +2,23 @@
 function changeImg(){
 	$("#changeImg").css({
 		"height":$(window).height()+"px",
-		"backgroundImage":"url(img/bg_1.jpg)"
-	})
-	var n = 1;
+		"backgroundImage":"url(http://pic31.nipic.com/20130726/8157563_104655714000_2.jpg)"
+	});
+	var imgArr=["http://pic31.nipic.com/20130726/8157563_104655714000_2.jpg",
+	"http://pic1.nipic.com/2008-11-13/2008111384358912_2.jpg",
+	"http://pic9.nipic.com/20100904/4845745_195609329636_2.jpg",
+	"http://imgsrc.baidu.com/forum/pic/item/645b8701a18b87d6e716e197070828381e30fdae.jpg",
+	"http://pic10.nipic.com/20101103/5063545_000227976000_2.jpg",
+	"http://pic31.nipic.com/20130726/8157563_104655714000_2.jpg"
+	]
+	var n = 0;
 	function change(){
 		$("#changeImg").fadeTo(3000,0.4,function(){
-			n++;
-			if(n>3){
+			if(n>5){
 				n = 1;
 			}
-			$("#changeImg").css("backgroundImage","url(img/bg_"+n+".jpg");
+			$("#changeImg").css("backgroundImage","url("+imgArr[n]+")");
+			n++;
 			$("#changeImg").fadeTo(3000,1,function(){change()});
 		})
 	}
