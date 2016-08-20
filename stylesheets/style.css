@@ -1,0 +1,301 @@
+/*all*/
+*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 16px;
+	font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+a{
+	text-decoration: none;
+}
+.container{
+	width:1200px;
+	margin: 0 auto;
+	/*background-color: rgba(220,210,180,0.6);*/
+}
+.container>h3{
+	padding: 1rem 1rem;
+	font-size: 2rem;
+	font-weight: normal;
+	border-bottom: 1px solid silver;
+	color: brown;
+}
+/*--all--*/
+/*header*/
+.header{
+	width: 100%;
+	height: auto;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,0.5);
+	transition: all 1s;
+}
+.header a{
+	/*font-family: "arial, helvetica, sans-serif";*/
+	font-size: 1rem;
+	color: black;
+}
+.header li:nth-child(1)>a{
+	color: white;
+}
+.navList{
+	text-align: right;
+	height: auto;
+}
+.navList li{
+	display: inline-block;
+	padding: 2rem 0 1rem;
+	margin-left: 2rem;
+}
+/*--header*/
+/*home*/
+.home{
+	text-align: center;
+}
+.home img{
+	width: 20%;
+	height: auto;
+	border-radius: 50%;
+	background: blue;
+	margin: 10rem auto 0;
+}
+.home>h2{
+	padding: 2rem 0 1rem;
+	font-size: 2rem;
+	/*color: #6cf;*/
+	font-weight: normal;
+	/*font-family: "微软雅黑";*/
+}
+.home>div{
+	/*color: white;*/
+	font-size: 1.2rem;
+	width: 40%;
+	height: 6rem;
+	margin: 0 auto;
+}
+.home>p{
+	text-align: left;
+	text-indent: 2rem;
+	background: #36c;
+	padding: 2rem 1rem;
+	line-height: 2rem;
+	color: white;
+}
+/*--home*/
+
+/*about*/
+.about p{
+	text-indent: 2rem;
+	font-size: 1rem;
+	line-height: 2rem;
+	margin-top: 1rem;
+	padding: 2rem 1rem;
+	color: white;
+	background: #36c;
+}
+#find{
+	color: #5aa1ec;
+	cursor: pointer;
+	font-weight: bold;
+	padding-left: 2px;
+}
+#find:hover{
+	color: #cd241b;
+}
+/*--about*/
+
+/*skill*/
+/*.skillList{
+	list-style: none;
+	width: 10%;
+	text-align: right;
+	margin: 5rem 1rem;
+	float: left;
+}
+.skillList li{
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	background: lightgray;
+	margin: 0.2rem 0;
+}
+.skillList li:nth-child(1){
+	background: #edde19;
+}
+.skillList li:nth-child(2){
+	background: #97be0d;
+}
+.skillList li:nth-child(3){
+	background: #D84F5F;
+}
+.skillList li:nth-child(4){
+	background: #88B8E6;
+}
+.skillList li:nth-child(5){
+	background: #BEDBE9;
+}
+.skillList li:nth-child(6){
+	background: #EDEBEE;
+}
+#myCanvas{
+	float: left;
+	border: 1px solid silver;
+}
+.introduce{
+	width: 45%;
+	height: 100px;
+	float: left;
+}*/
+.skill>ul{
+	list-style-type: decimal;
+	width: 48%;
+	margin-left: 1%;
+	box-sizing: border-box;
+	padding: 2rem 0rem 2rem 2rem;
+	height: auto;
+	float: left;
+	margin-top: 2rem;
+}
+.skill .skillList{
+	font-size: 1rem;
+	line-height: 2rem;
+	background: #36c;
+	color: white;
+	padding-left: 3rem;
+}
+.skill_img{
+	background: white;
+}
+.skill_img li{
+	list-style: none;
+}
+.skill_img>h3{
+	font-size: 2rem;
+}
+.skill_img li>h3{
+	color: #56b2e6;
+	padding: 0.5rem 0;
+	font-size: 1.2rem;
+}
+.skill_img li>div{
+	width: 90%;
+	height: 0.5rem;
+	background: #e8e8e8;
+}
+.line{
+	height: 100%;
+	width: 0;
+	background: #56b2e6;
+	animation: carton 2s ease-in-out 2s forwards;
+}
+@keyframes carton{
+	from{
+		width: 0;
+	}
+	to{
+		width: 90%;
+	}
+}
+.clear{
+	clear: both;
+}
+/*--skill*/
+/*experience*/
+.exp ul{
+	list-style: none;
+	overflow: hidden;
+	margin-top: 2rem;
+}
+.project_pic{
+	width: 48%;
+	float: left;
+	margin-left: 1%;
+}
+.project_txt{
+	width: 48%;
+	float: left;
+	margin-left: 1%;
+	box-sizing: border-box;
+	padding: 2rem 2rem;
+	background: white;
+}
+.project_pic img{
+	width: 100%;
+}
+.project_txt>h3{
+	font-size: 2rem;
+	/*padding: 0.5rem 0;*/
+	font-weight: normal;
+}
+.project_txt p{
+	font-size: 1rem;
+	line-height: 2rem;
+}
+/*--experience*/
+/*contact*/
+.contact{
+	overflow: hidden;
+}
+.contact>ul{
+	width: 30%;
+	float: left;
+	margin-top: 2rem;
+	margin-left: 1%;
+	list-style: none;
+	font-size: 1rem;
+	background: white;
+	box-sizing: border-box;
+	padding: 2rem 2rem;
+	color: #56b2e6;
+	height: 10rem;
+}
+.contact>ul li{
+	color: black;
+}
+.contact h4{
+	font-size: 2rem;
+	line-height: 3rem;
+	font-weight: normal;
+}
+.contact>div li{
+	line-height: 2rem;
+	font-size: 1rem;
+	padding-left: 1rem;
+	color: #000000;
+}
+.contact>div{
+	width: 68%;
+	margin-top: 2rem;
+	float: left;
+	margin-left: 1%;
+	background: #36c;
+	color: white;
+	padding: 2rem 2rem;
+	box-sizing: border-box;
+	height: 10rem;
+}
+.contact>div p{
+	font-size: 1rem;
+	line-height: 2rem;
+}
+/*--contact*/
+.footer{
+	width: 100%;
+	font-size: 1rem;
+	color: gray;
+	text-align: center;
+	padding: 2rem 0;
+}
+#changeImg{
+	width: 100%;
+	background-repeat:no-repeat;
+	background-size: 100% 100%;
+	/*opacity: 0.6;*/
+	z-index: -1;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
