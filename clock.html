@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#out{
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				border: 2px solid silver;
+				margin: 100px auto;
+				position: relative;
+			}
+			#hour{
+				border-left: 2px solid #2B2D2D;
+				position: absolute;
+				left: 149px;
+				top:90px;
+				height: 70px;
+				transform-origin: 1px 60px;
+				z-index: -1;
+			}
+			#min{
+				border-left: 2px solid greenyellow;
+				position: absolute;
+				left: 149px;
+				top:70px;
+				height: 90px;
+				transform-origin: 1px 80px;
+				z-index: -2;
+			}
+			#second{
+				border-left: 2px solid red;
+				position: absolute;
+				left: 149px;
+				top:50px;
+				height: 110px;
+				transform-origin: 1px 100px;
+				z-index: -3;
+			}
+			#round{
+				background: springgreen;
+				margin: auto;
+  				position: absolute;
+  				top: 0; left: 0; bottom: 0; right: 0;
+				width: 3px;
+				height: 3px;
+				border-radius: 50%;
+			}
+			.list{
+				/*background: yellow;*/
+				margin: auto;
+  				position: absolute;
+  				left: 140px;
+  				transform-origin: 10px 150px;
+				width: 20px;
+				height: 150px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="out">
+			<div id="hour"></div>
+			<div id="min"></div>
+			<div id="second"></div>
+			<div id="round"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var lis = document.querySelectorAll(".list");
+		var hour = document.querySelector("#hour");
+		var min = document.querySelector("#min");
+		var second = document.querySelector("#second");
+		for(var i = 0;i < 12;i++){
+			lis[i].style.transform = "rotate("+ i*30 +"deg)";
+			lis[i].innerHTML = "|" +"<br>"+ i;
+		}
+		var j = 0, k = 0, n = 0;
+		function myFunction(){
+			var date = new Date();
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			if(h>12){
+				h -= 12;
+			}
+			hour.style.transform = "rotate("+h*30+"deg)";
+			min.style.transform = "rotate("+m*6+"deg)";
+			second.style.transform = "rotate("+s*6+"deg)";
+		
+		}
+		setInterval(myFunction,1000);
+	</script>
+</html>
