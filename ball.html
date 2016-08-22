@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		canvas{
+			border: 2px solid silver;
+		}
+	</style>
+	<body>
+		<canvas id="myCanvas" width="900" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ct = myCanvas.getContext("2d");
+		function Ball(x,y,r,color){
+			this.x = x;
+			this.y = y;
+			this.r = r;
+			this.draw = function(){
+				ct.beginPath();
+				ct.fillStyle = color;
+				ct.arc(this.x,this.y,this.r,0,Math.PI*2);
+				ct.fill();
+			}
+			this.speedX = parseInt(Math.random()*5+1);
+			this.speedY = parseInt(Math.random()*5+1);
+			this.move = function(){
+				this.x += this.speedX;
+				this.y += this.speedY;
+				if(this.x-this.r<=0 || this.x+this.r>=myCanvas.width){
+					this.speedX *= -1;
+				}
+				if(this.y-this.r<=0 || this.y+this.r>=myCanvas.height){
+					this.speedY *= -1;
+				}
+			}
+		}
+//		function getAnimate(){
+//			ct.clearRect(0,0,myCanvas.width,myCanvas.height);
+//			var(for i = 0; i < objArr.length; i++){
+//				obj.draw();
+//				obj.move();
+//			}
+//			window.requestAnimationFrame(getAnimate);
+//		}
+		function getRandom(max,min){
+			return parseInt(Math.random()*(max-min)+min);
+		}
+		var objArr = [];
+		var colorArr = ["red","yellow","green","silver","oldlace","orange","darkgoldenrod","sienna"]
+		for(var i = 0; i < 300 ;i++){
+			var r = getRandom(20,5);
+			var maxX = myCanvas.width - r;
+			var maxY = myCanvas.height - r;
+			var x = getRandom(maxX,r);
+			var y = getRandom(maxY,r);
+//			var index = parseInt(Math.random()*8);
+//			console.log(x+"<br>"+y+"<br>"+r+"<br><br>");
+//			var color = colorArr[index];
+			var re = getRandom(255,0);
+			var g = getRandom(255,0);
+			var b = getRandom(255,0);
+			var color = "rgb("+ re +","+ g +","+ b +")";
+			var ball = new Ball(x,y,r,color)
+			objArr.push(ball);
+		}
+//		for(var i = 0; i < objArr.length;i++){
+//			objArr[i].draw();
+//		}
+		function getAnimate(){
+			ct.clearRect(0,0,myCanvas.width,myCanvas.height);
+			for( i = 0; i < objArr.length; i++){
+				objArr[i].draw();
+				objArr[i].move();
+				var selec = getRandom(2,0);
+				if(selec>1){
+					ball.speedX ;
+					ball.speedY ;
+					ball.speedX *= -1;
+					ball.speedY *= -1;
+				}
+			}
+			window.requestAnimationFrame(getAnimate);
+		}
+		getAnimate();
+	</script>
+</html>
