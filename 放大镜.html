@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap{
+				width: 350px;
+				height: 350px;
+				border: 1px solid silver;
+				position: absolute;
+				left: 20px;
+				top: 200px;
+			}
+			#large{
+				width: 400px;
+				height: 400px;
+				border: 1px solid black;
+				position: absolute;
+				left: 390px;
+				top: 175px;
+				overflow: hidden;
+				display: none;
+			}
+			#mask{
+				width: 175px;
+				height: 175px;
+				background: rgba(233,236,7,.5);
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<img src="img/bigger/55f0e80aN532efcae.jpg" alt="" />
+			<ddiv id="mask"></ddiv>
+		</div>
+		<div id="large">
+			<img src="img/bigger/55f0e877N3c24faa3 下午3.15.25.jpg" alt="" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		var left = document.querySelector('#wrap');
+		var mask = document.getElementById('mask');
+		var large = document.getElementById('large');
+		var img = large.firstElementChildChild;
+		left.onmousemove = function(e){
+			//			接受事件对象
+			var event = e || window.event;
+			var x = event.clientX;
+			var y = event.clientY;
+//			蒙版和大图出现
+			mask.style.display = "block";
+			large.style.display = "block";
+			var minX = mask.offsetWidth * 0.5 + left.offsetLeft;
+			var maxX = left.offsetWidth - mask.offsetWidth/2 + left.offsetLeft;
+			var minH = mask.offsetHeight * 0.5 + left.offsetTop;
+			var maxH = left.offsetHeight - mask.offsetHeight/2 + left.offsetTop;
+			if(x < minX){
+				x = minX;
+			}else if (x > maxX) {
+				x = maxX
+			} 
+			if(y < minH){
+				y = minH;
+			}else if (y > maxH) {
+				y = maxH
+			} 
+			mask.style.left = x -(mask.offsetWidth /2) -left.offsetLeft + "px";
+			mask.style.top = y - (mask.offsetHeight/2) - left.offsetTop + "px";
+//			获取比例
+			var compareX = parseInt(mask.style.left) /left.offsetWidth;
+			var compareY = parseInt(mask.style.top) /left.offsetHeight;
+			large.scrollLeft = 800*compareX ;
+			large.scrollTop = 800*compareY ;
+		}
+		left.onmouseout = function(){
+			mask.style.display = "none";
+			large.style.display = "none";
+		}
+	</script>
+</html>
