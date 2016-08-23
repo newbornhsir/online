@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+
+			#wrap{
+				/*width: 1800px;*/
+				list-style: none;
+				margin: 0 auto;
+				padding: 0;
+				position: relative;
+			}
+			#wrap li{
+				position: absolute;
+				width: 200px;
+				text-align: center;
+				background: -webkit-linear-gradient(left,white 1%,green 30%,lightgreen 50%,purple 80%);
+				transition: all 1s;
+				color: yellow;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="wrap">
+			
+		</ul>
+	</body>
+	<script type="text/javascript">
+		function randomHeight(min,max){
+			return (Math.random()*(max-min)+min);
+		}
+		var width = 200;
+		var padding = 10;
+		var wrap = document.getElementById('wrap');
+//			定义一个数组,存放Li的数组
+			var lis = [];
+//			存放li高度的数组
+			var lisHeight = [];
+		function createLi(number,flag){
+//			获取当前窗口可视宽度
+			var windowWidth = document.documentElement.clientWidth;
+//			计算当前窗口可视区域所能放置最大列数
+			var cols = parseInt(windowWidth/(width+padding*2));
+			document.getElementById("wrap").style.width = cols*(width+padding*2) + "px";
+//			wrap.style.width = 
+			var heightArray = [];
+			for(var i = 0; i < cols; i++){
+				heightArray[i] = 0;
+			}
+			for (var i = 0;i < number; i++) {
+				var li = lis[i] || document.createElement("li");	
+				li.innerHTML = "hello world";
+				var height = lisHeight[i] || randomHeight(100,300);
+				li.style.height = height + "px";
+				li.style.lineHeight = height + "px";
+				if(flag){
+					lis.push(li);
+					lisHeight.push(height);
+				}
+				
+//				获取最短列
+				var minheight = heightArray[0];
+				var maxheight = 0;
+				var index = 0;
+				for (var j = 0; j < heightArray.length;j++) {
+					if(minheight > heightArray[j]){
+						minheight = heightArray[j];
+						index = j;
+					}
+					if(maxheight < heightArray[j]){
+						maxheight = heightArray[j];
+					}
+				}
+				document.getElementById("wrap").style.height = maxheight+ "px";
+//				查询li位置
+				li.style.top = heightArray[index] + "px";
+				li.style.left = (width + padding*2)*index + padding + "px";
+				heightArray[index] += height + 2*padding;
+				if(flag){
+					wrap.appendChild(li);
+				}		
+			}
+		}
+		createLi(100,true);
+		window.onresize = function(){
+			createLi(100,false);
+		}
+		
+		
+	</script>
+</html>
