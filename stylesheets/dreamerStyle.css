@@ -1,0 +1,262 @@
+*{margin: 0;padding: 0;}
+#container{height: 650px;width: 375px;background: black;background-image: url(img/nebula-668783.png);background-size:375px 650px;background-repeat: no-repeat;margin: 100px auto;position: relative;overflow: hidden;}
+	.nav{
+		width: 375px;
+		height: 64px;
+	}
+		.nav img{
+			width: 375px;height: 64px;
+		}
+	.load{
+		width: 375px;
+		height: 4px;
+		position: relative;
+	}
+		.loading{
+			width: 375px;
+			height: 4px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	.square{
+		box-sizing: border-box;
+		width: 375px;
+		height:429px;
+		padding: 60px 35px;
+		position: relative;
+		-webkit-transform-style: preserve-3d;perspective: 1000px;
+		z-index: 6;
+	}
+		.blue{
+			width: 305px;
+			position:absolute ;
+			right: -302px;
+			top: 60px;
+			z-index: 1;
+			-webkit-animation:cartoon2 2s forwards;
+		}
+		.red{
+			height: 309px;
+			width: 145px;
+			position: absolute;
+			top: 60px;
+			left: -144px;
+			z-index: 1;
+			-webkit-animation:cartoon3 2s forwards;
+		}
+		.yellow{
+			width: 305px;
+			position: absolute;
+			left: 35px;
+			bottom: -275px;
+			z-index: 2;
+			-webkit-animation:cartoon1 2s forwards;
+		}
+		.green{
+			position: absolute;
+			top: -337px;
+			left: 147px;
+			z-index: 3;
+			height: 269px;
+		-webkit-animation:cartoon4 3s 2s forwards;	
+		}
+@-webkit-keyframes cartoon4{
+ 	from{}
+ 	to{transform: translateY(397px);}
+ }
+		.gray{
+			position: absolute;
+			top: -232px;
+			left: 192px;
+			z-index: 3;
+			height: 165px;
+			-webkit-animation:cartoon5 5s 5s forwards;
+		}
+@-webkit-keyframes cartoon5{
+ 	from{}
+ 	to{transform: translateY(292px);}
+ }
+		.blue_2{
+			width: 226px;
+			position: absolute;
+			right: 35px;
+			bottom: -276px;
+			z-index: 3;
+			-webkit-animation:cartoon1 2s forwards;
+		}
+		.d{
+			position: absolute;
+			left: 225px;
+			top: -150px;
+			width: 60px;
+			z-index: 4;
+			-webkit-animation:cartoon6 5s 5s forwards;
+		}
+@-webkit-keyframes cartoon6{
+ 	from{}
+ 	to{transform: translate(-190PX,325px);}
+ }
+		.triangle{
+			position: absolute;
+			left: 290px;
+			top:-250px;
+			width: 80px;
+			z-index: 2;
+			-webkit-animation:cartoon7 5s 5s forwards;
+		}
+@-webkit-keyframes cartoon7{
+ 	from{}
+ 	to{transform: translate(-190PX,375px);}
+ }
+		.red_d{
+			position: absolute;
+			top:-100px;
+			left: 110px;
+			/*top:0px;*/
+			width: 25px;
+			z-index: 3;
+			-webkit-animation:cartoont 5s 5s forwards;
+		}
+@-webkit-keyframes cartoont{
+ 	from{}
+ 	to{transform:translateY(290px);}
+ }
+		.white_d{
+			position: absolute;
+			left: 48px;
+			top:185px;
+			width: 35px;
+			z-index: 2;
+			opacity: 0;
+			/*transform: translateZ(300px);*/
+			-webkit-animation:cartoon8 3s 10s forwards;	
+		}
+@-webkit-keyframes cartoon8{
+ 	from{opacity: 0;transform: translateZ(500px);}
+ 	to{transform: translateZ(0);opacity: 1;}
+ }
+		.rw{
+			position: absolute;
+			left: 100px;
+			top:170px;
+			width:232px ;
+			z-index: 4;
+			-webkit-animation:cartoon9 3s 11s forwards;
+			opacity: 0;
+		}
+@-webkit-keyframes cartoon9{
+ 	from{opacity: 0;transform: translateZ(700px);}
+ 	to{transform: translateZ(0);opacity: 1;}
+ }
+		.e{
+			position: absolute;
+			left: 147px;
+			top:176px;
+			width:40px ;
+			z-index: 4;
+			-webkit-animation:cartoon9 3s 12s forwards;
+			opacity: 0;
+		}
+		.make{
+			position: absolute;
+			left: 70px;
+			top:188px;
+			width:260px ;
+			z-index: 4;
+			-webkit-animation:cartoon10 3s 12s forwards;
+			opacity: 0;
+		}
+@-webkit-keyframes cartoon10{
+ 	from{opacity: 0;transform: translateZ(900px);}
+ 	to{transform: translateZ(0);opacity: 1;}
+ }
+	.text{position: relative;text-align: center;
+	-webkit-animation:cartoon10 3s 13s forwards;
+			opacity: 0;}
+			.creative{
+				/*position: absolute;
+				left: 0;
+				top: 0;*/
+				width: 200px;
+			}
+			.goto{
+				width: 300px;
+			}
+	.logo{
+		position: relative;
+		height: 28px;
+		text-align: center;
+		padding-top: 58px;
+	}
+		.arrows{
+			width: 50px;
+			-webkit-animation:logoArrows 1s linear infinite;
+		}
+@-webkit-keyframes logoArrows{
+ 	from{}
+ 	50%{transform: translateY(-10px);}
+ 	100%{transform: translateY(10px);}
+ }
+		.music{
+			position: absolute;
+			right: 10px;
+			bottom: 6px;
+			width: 30px;
+			-webkit-animation:logoMusic 1s linear infinite;
+		}
+@-webkit-keyframes logoMusic{
+ 	from{}
+ 	to{transform:rotateZ(360deg);}
+ }
+		.float{
+			display: inline-block;
+			width: 200px;
+			position: absolute;
+			bottom: 300px;
+			right: -300px;
+			-webkit-animation:star 1s linear infinite;
+		}
+		.float2{
+			display: inline-block;
+			width: 300px;
+			position: absolute;
+			top: 80px;
+			left: -300px;
+			transform: rotateZ(30deg);
+			-webkit-animation:star2 1s linear infinite;
+			z-index: 1;
+		}
+		.float3{
+			display: inline-block;
+			width: 300px;
+			position: absolute;
+			top: 100px;
+			right: -300px;
+			-webkit-animation:star3 1s linear infinite;
+		}
+ @-webkit-keyframes star{
+ 	from{}
+ 	to{transform: translate(-675px,250px);}
+ }
+ @-webkit-keyframes star2{
+ 	from{}
+ 	to{transform: translate(875px,400px);}
+ }
+ @-webkit-keyframes star3{
+ 	from{}
+ 	to{transform: translate(-675px,-130px);}
+ }
+ @-webkit-keyframes cartoon1{
+ 	from{}
+ 	to{transform: translateY(-335px);}
+ }
+  @-webkit-keyframes cartoon2{
+ 	from{}
+ 	to{transform: translateX(-337px);}
+ }
+  @-webkit-keyframes cartoon3{
+ 	from{}
+ 	to{transform: translateX(179px);}
+ }
+ 
