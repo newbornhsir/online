@@ -93,7 +93,9 @@
 						num++;
 						var scale = parseFloat(num/lengths).toFixed(2)*100;
 						loadImg[arg] = this;
-						beginDraw(scale);
+						if(num < lengths){
+							beginDraw(scale);
+						}
 							//判断加载完成
 						if(num >= lengths){
 							for(var i = 0; i < imgArr.length; i++){
