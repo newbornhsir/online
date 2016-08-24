@@ -4,42 +4,129 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="stylesheets/dreamerStyle.css"/>
-		<meta name="viewport" content="width=device-width,use-scalable=no"/>
+		<!-- <meta name="viewport" content="width=device-width,use-scalable=no"/> -->
 	</head>
 	<body>
 		<div id="container">
-			<div class="nav">
-				<img src="img/dreamer/nav.png"/>
+			<div id="preload">
+				<div>11</div>
+				<canvas width="100" height="100" style="position: absolute;left: 0;top: 0;background: transparent;z-index: 10;"></canvas>
 			</div>
-			<div class="load">
-				<img src="img/loading.png" alt="" class="loading" />
+			<div class="nav onload">
+				<img src=""/>
 			</div>
-			<div class="square">
-				<img src="img/dreamer/blue_bg.png" alt="" class="blue" />
-				<img src="img/dreamer/red_bg.png" alt="" class="red" />
-				<img src="img/dreamer/yellow_bg.png" alt="" class="yellow"/>
-				<img src="img/dreamer/green.png" alt="" class="green" />
-				<img src="img/dreamer/gray.png" alt="" class="gray" />
-				<img src="img/dreamer/double_blue.png" alt="" class="blue_2" />
-				<img src="img/dreamer/D.png" alt="" class="d" />
-				<img src="img/dreamer/left_gray.png" alt="" class="triangle" />
-				<img src="img/dreamer/double_red.png" alt="" class="red_d" />
-				<img src="img/dreamer/white_D.png" alt="" class="white_d" />
-				<img src="img/dreamer/r&am1.png" alt="" class="rw" />
-				<img src="img/dreamer/E.png" alt="" class="e" />
-				<img src="img/dreamer/maker.png" alt="" class="make" />
+			<div class="load onload">
+				<img src="" alt="" class="loading" />
 			</div>
-			<div class="text">
-				<img src="img/dreamer/2015.png" alt="" class="creative" />
-				<img src="img/dreamer/men.png" alt="" class="goto" />
+			<div class="square onload">
+				<img src="" alt="" class="blue" />
+				<img src="" alt="" class="red" />
+				<img src="" alt="" class="yellow"/>
+				<img src="" alt="" class="green" />
+				<img src="" alt="" class="gray" />
+				<img src="" alt="" class="blue_2" />
+				<img src="" alt="" class="d" />
+				<img src="" alt="" class="triangle" />
+				<img src="" alt="" class="red_d" />
+				<img src="" alt="" class="white_d" />
+				<img src="" alt="" class="rw" />
+				<img src="" alt="" class="e" />
+				<img src="" alt="" class="make" />
 			</div>
-			<div class="logo">
-				<img src="img/dreamer/dvh.png" alt="" class="arrows" />
-				<img src="img/dreamer/music_icon.png" alt="" class="music" />
+			<div class="text onload">
+				<img src="" alt="" class="creative" />
+				<img src="" alt="" class="goto" />
 			</div>
-			<img src="img/dreamer/float.png" alt="" class="float" />
-			<img src="img/dreamer/float2.png" alt="" class="float2" />
-			<img src="img/dreamer/float3.png" alt="" class="float3" />
+			<div class="logo onload">
+				<img src="" alt="" class="arrows" />
+				<img src="" alt="" class="music" />
+			</div>
+			<img src="" alt="" class="float onload" />
+			<img src="" alt="" class="float2 onload" />
+			<img src="" alt="" class="float3 onload" />
 		</div>
 	</body>
+	<script type="text/javascript">
+		var load = document.getElementById("preload").children[0];
+		var canvas = document.getElementsByTagName("canvas")[0];
+		function draw(){
+			if(canvas.getContext){
+				var ct = canvas.getContext("2d");
+				return function(scale){
+						ct.clearRect(0,0,100,100);
+						ct.beginPath();
+						ct.lineWidth = 5;
+						ct.strokeStyle = "green";
+						ct.arc(50,50,46,0,Math.PI*2/100*scale,false);
+						ct.stroke();
+						load.innerHTML = scale+"%";
+					}
+			}else{
+				return function(scale){ load.innerHTML = scale+"%";}
+			}
+		}
+		var beginDraw = draw();
+		//预加载
+		function loading(imgs){
+			var loadImg = {};
+			//确定出入的imgs对象中键值对的个数
+			var lengths = 0;
+			for(var keys in imgs){
+				lengths++
+			}
+			//遍历imgs对象，判断加载情况
+				//声明变量，确定加载次数
+			var num = 0;
+			var imgArr = document.getElementsByTagName("img");
+			for(var keys in imgs){
+				var imgObj = new Image();
+				imgObj.src = imgs[keys];
+				imgObj.onload = (function(arg){
+					return function(){
+						num++;
+						var scale = parseFloat(num/lengths).toFixed(2)*100;
+						loadImg[arg] = this;
+						beginDraw(scale);
+							//判断加载完成
+						if(num >= lengths){
+							for(var i = 0; i < imgArr.length; i++){
+								imgArr[i].src = loadImg[i+1].src;
+							}
+							document.getElementById("container").style.background = "url("+loadImg[23].src+")";
+						}
+						document.getElementById("preload").style.display = "none";
+						for(var i = 0; i < document.getElementsByClassName("onload").length; i++){
+							document.getElementsByClassName("onload")[i].style.display = "block";
+						}
+					}
+				})(keys)
+			}
+		}
+		loading({
+			"1":"img/dreamer/nav.png",
+			"2":"img/dreamer/loading.png",
+			"3":"img/dreamer/blue_bg.png",
+			"4":"img/dreamer/red_bg.png",
+			"5":"img/dreamer/yellow_bg.png",
+			"6":"img/dreamer/green.png",
+			"7":"img/dreamer/gray.png",
+			"8":"img/dreamer/double_blue.png",
+			"9":"img/dreamer/D.png",
+			"10":"img/dreamer/left_gray.png",
+			"11":"img/dreamer/double_red.png",
+			"12":"img/dreamer/white_D.png",
+			"13":"img/dreamer/r&am1.png",
+			"14":"img/dreamer/E.png",
+			"15":"img/dreamer/maker.png",
+			"16":"img/dreamer/2015.png",
+			"17":"img/dreamer/men.png",
+			"18":"img/dreamer/dvh.png",
+			"19":"img/dreamer/music_icon.png",
+			"20":"img/dreamer/float.png",
+			"21":"img/dreamer/float2.png",
+			"22":"img/dreamer/float3.png",
+			"23":"img/dreamer/nebula-668783.png"
+		})
+		
+	</script>
 </html>
